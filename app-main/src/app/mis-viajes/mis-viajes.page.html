@@ -1,0 +1,42 @@
+<!-- src/app/mis-viajes/mis-viajes.page.html -->
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Mis Viajes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <h2>Viajes Ofrecidos</h2>
+    <ion-list>
+        <ion-item *ngFor="let viaje of viajesOfrecidos" detail>
+            <ion-label>
+                <h2>{{ viaje.ruta }}</h2>
+                <p>Conductor: {{ viaje.conductor }}</p>
+                <p>Horario: {{ viaje.horario }}</p>
+                <p>Patente: {{ viaje.patente }}</p> <!-- Añadir patente -->
+                <p>Costo: <strong>${{ viaje.costo }}</strong></p>
+            </ion-label>
+            <ion-buttons slot="end">
+                <ion-button color="danger" (click)="cancelarViaje(viaje.id)">Cancelar</ion-button>
+                <ion-button color="primary" (click)="aceptarViaje(viaje.id)">Aceptar</ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-list>
+
+    <h2>Viajes Solicitados</h2>
+    <ion-list>
+        <ion-item *ngFor="let viaje of viajesSolicitados" detail>
+            <ion-label>
+                <h2>{{ viaje.ruta }}</h2>
+                <p>Conductor: {{ viaje.conductor }}</p>
+                <p>Horario: {{ viaje.horario }}</p>
+                <p>Patente: {{ viaje.patente }}</p> <!-- Añadir patente -->
+                <p>Costo: <strong>${{ viaje.costo }}</strong></p>
+            </ion-label>
+            <ion-buttons slot="end">
+                <ion-button color="danger" (click)="cancelarSolicitud(viaje.id)">Solicitud</ion-button>
+                <ion-button color="primary" (click)="aceptarViaje(viaje.id)">Aceptar</ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-list>
+</ion-content>

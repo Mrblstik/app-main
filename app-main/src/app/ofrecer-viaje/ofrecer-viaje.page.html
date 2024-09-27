@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar></ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <h2>Detalles del viaje</h2>
+
+    <!-- Campo para ingresar la patente -->
+    <ion-item>
+      <ion-label position="floating">Patente</ion-label>
+      <ion-input placeholder="" [(ngModel)]="licensePlate" required></ion-input>
+    </ion-item>
+
+    <!-- Campo para ingresar el destino -->
+    <ion-item>
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input placeholder="" [(ngModel)]="destination" required></ion-input>
+    </ion-item>
+
+    <!-- Campo para la fecha del viaje -->
+    <ion-item>
+      <ion-label position="floating">Fecha del viaje</ion-label>
+      <ion-input type="date" [(ngModel)]="travelDate" required></ion-input>
+    </ion-item>
+
+    <!-- Campo para la hora del viaje -->
+    <ion-item>
+      <ion-label position="floating">Hora de salida</ion-label>
+      <ion-input type="time" [(ngModel)]="travelTime" required></ion-input>
+    </ion-item>
+
+    <!-- Campo para el costo por persona -->
+    <ion-item>
+      <ion-label position="floating">Costo por persona</ion-label>
+      <ion-input type="number" min="0" placeholder="" [(ngModel)]="costPerPerson" required></ion-input>
+    </ion-item>
+
+    <!-- Campo para la cantidad de asientos disponibles -->
+    <ion-item>
+      <ion-label position="floating">Asientos disponibles</ion-label>
+      <ion-input type="number" min="1" placeholder="" [(ngModel)]="availableSeats" required></ion-input>
+    </ion-item>
+
+    <!-- Botón para ofrecer el viaje con validación -->
+    <ion-button expand="full" color="primary" (click)="submitOffer()" [disabled]="!isFormValid()">
+      Ofrecer viaje
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Medios de Pago</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let medio of mediosDePago">
+      <ion-label>
+        <h2>{{ medio.tipo }}: {{ medio.detalle }}</h2>
+        <p>Válido hasta: {{ medio.vencimiento }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editarMedio(medio)">Editar</ion-button>
+        <ion-button color="danger" (click)="eliminarMedio(medio)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="agregarNuevoMedio()">Agregar Nuevo Medio</ion-button>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ modoEdicion ? 'Editar' : 'Agregar' }} Medio de Pago</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <form (ngSubmit)="guardarMedio()">
+          <ion-item>
+            <ion-label position="floating">Tipo de Medio</ion-label>
+            <ion-select [(ngModel)]="nuevoMedio.tipo" name="tipo" required>
+              <ion-select-option value="Tarjeta">Tarjeta de Crédito/Débito</ion-select-option>
+              <ion-select-option value="Cuenta Bancaria">Cuenta Bancaria</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Numero de targeta</ion-label>
+            <ion-input [(ngModel)]="nuevoMedio.detalle" name="detalle" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Fecha de Vencimiento</ion-label>
+            <ion-input type="month" [(ngModel)]="nuevoMedio.vencimiento" name="vencimiento" required></ion-input>
+          </ion-item>
+          <ion-button expand="full" type="submit">{{ modoEdicion ? 'Guardar Cambios' : 'Agregar Medio' }}</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

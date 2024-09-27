@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Solicitar Viaje</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <h2>Detalles de la solicitud</h2>
+    <form (ngSubmit)="enviarSolicitud()">
+        <ion-item>
+            <ion-label position="floating">Destino</ion-label>
+            <ion-input type="text" [(ngModel)]="destino" name="destino" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Fecha</ion-label>
+            <ion-input type="date" [(ngModel)]="fecha" name="fecha" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Hora</ion-label>
+            <ion-input type="time" [(ngModel)]="hora" name="hora" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Número de Personas</ion-label>
+            <ion-input type="number" [(ngModel)]="numeroPersonas" name="numeroPersonas" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Valor</ion-label>
+            <ion-input type="number" [(ngModel)]="ValorTotal" name="ValorTotal" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit">Solicitar Viaje</ion-button>
+    </form>
+</ion-content>

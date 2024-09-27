@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <div id="container" class="ion-padding" style="margin-top: 30px;">
+    <!-- Título principal -->
+    <div class="header-content text-center">
+      <h1>Organiza tu viaje de regreso a casa</h1>
+      <p>Usa <strong>TeLlevoAPP</strong> para encontrar compañeros de viaje o ofrecer un viaje seguro y a bajo costo.</p>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="button-group ion-margin-vertical">
+      <ion-button expand="block" color="primary" (click)="offerRide()">
+        <ion-icon name="car" slot="start"></ion-icon> Ofrecer viaje
+      </ion-button>
+
+      <ion-button expand="block" color="tertiary" (click)="requestRide()">
+        <ion-icon name="people" slot="start"></ion-icon> Solicitar viaje
+      </ion-button>
+
+      <ion-button expand="block" color="secondary" (click)="verDetalles()">
+        <ion-icon name="information-circle" slot="start"></ion-icon> Detalles de viaje
+      </ion-button>
+
+      <ion-button expand="block" color="light" (click)="verMisViajes()">
+        <ion-icon name="briefcase" slot="start"></ion-icon> Mis Viajes
+      </ion-button>
+    </div>
+
+    <!-- Beneficios llamativos -->
+    <div class="benefits-section ion-padding">
+      <h2 class="text-center ion-margin-bottom">¿Por qué usar <strong>TeLlevoAPP</strong>?</h2>
+      <div class="benefits-grid">
+        <!-- Beneficio 1 -->
+        <div class="benefit-card">
+          <ion-icon name="time-outline" size="large" color="success"></ion-icon>
+          <h3>Ahorra tiempo</h3>
+          <p>Encuentra transporte rápidamente y evita largas esperas.</p>
+        </div>
+        <!-- Beneficio 2 -->
+        <div class="benefit-card">
+          <ion-icon name="people-outline" size="large" color="tertiary"></ion-icon>
+          <h3>Conoce compañeros</h3>
+          <p>Conecta con otros estudiantes mientras compartes el viaje.</p>
+        </div>
+        <!-- Beneficio 3 -->
+        <div class="benefit-card">
+          <ion-icon name="shield-checkmark-outline" size="large" color="primary"></ion-icon>
+          <h3>Viaja seguro</h3>
+          <p>Comparte tu viaje con confianza y seguridad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
